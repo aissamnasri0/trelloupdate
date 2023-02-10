@@ -1,0 +1,35 @@
+﻿
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes projet</title>
+</head>
+
+<body>
+    @foreach (var item in Model)
+    {
+            <hr />
+            <div>
+            <p><strong>nom de carte :</strong> @item.Titre</p>
+            <p><strong>description:</strong> @item.Description</p>
+            
+            </div>
+            <hr />
+
+    }
+    @{
+        var IdListe = 0;
+        foreach (var item1 in Model)
+        {
+            IdListe = item1.IdListe;
+        }
+    }
+
+    <a asp-controller="Cartes" asp-action="Create" asp-route-id="@IdListe">ajouter carte</a>
+
+  
+
+</body>
+</html>

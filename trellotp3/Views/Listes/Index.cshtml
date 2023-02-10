@@ -1,0 +1,47 @@
+﻿
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes projet</title>
+</head>
+
+<body>
+    @{if(Model!=null){
+        foreach (var item in Model)
+    {
+            <hr />
+            <div>
+                <p><strong>Nom :</strong> @item.Nom</p>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            <a asp-controller="Cartes" asp-action="Index" asp-route-id="@item.Id">listes des cartes</a>
+         </div>
+            <hr />
+           
+               
+            
+    }
+    
+        var Idprojet = "";
+        foreach(var item1 in Model)
+        {
+            Idprojet = item1.IdProjet;
+        }
+            <a asp-controller="Listes" asp-action="Create" asp-route-id="@Idprojet">creer list</a>
+        }
+        else
+        {
+            <a asp-controller="Listes" asp-action="Create" asp-route-id="@Model">creer list</a>
+        }
+
+
+}
+
+   
+
+    
+
+</body>
+</html>

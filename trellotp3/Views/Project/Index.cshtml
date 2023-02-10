@@ -1,0 +1,28 @@
+﻿
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes projet</title>
+</head>
+
+<body>
+    @foreach (var item in Model)
+    {
+        <hr />
+        <div>
+            <p><strong>nom de projet :</strong> @item.Nom</p>
+            <p><strong>description:</strong> @item.DescriptionPro</p>
+            <p><a asp-action="Index" asp-controller="Listes" asp-route-id="@item.Id">listes</a></p>
+            <p><a asp-action="Delete" asp-controller="Project" asp-route-id="@item.Id">suprimer</a></p>
+            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+        </div>
+        <hr />
+
+    }
+    
+    <a asp-action="Create">ajouter un projet </a>
+
+</body>
+</html>
